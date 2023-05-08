@@ -10,20 +10,13 @@ function BinarioADecimal(num) {
   //    1 * 2 ** 4  =  16
   //    0 * 2 ** 5  =   0
   //Convierto el número en array e invierto el orden
-  num = num.toString();
-  let arrNumInvertido = num.split("").reverse();
+  let arrNumInvertido = num.toString().split("").reverse();
   let suma = [];
-  //Ignoro los valores que son 0 y pusheo a suma los valores que son 1 ya operados
   for (let i = 0; i < arrNumInvertido.length; i++) {
-    const element = arrNumInvertido[i];
-    if(element == 0){
-      continue;
-    }else{
-      let numMultiplicado = element * 2 ** i;
+      const element = arrNumInvertido[i];
+      let numMultiplicado = element * (2 ** i);
       suma.push(numMultiplicado);
-    }
   }
-  //Esto es para que no de error cuando quiero convertir el binario 0 o 1 a decimal
   if(num.length > 1){
     let resultado = suma.reduce(function(a, b){ return a + b; });
     return resultado;
